@@ -45,13 +45,16 @@ export const ContainerHead = styled.div`
 
 export const DataContainer = styled.div<{ routeName: string }>`
   overflow-y: hidden;
-  height: ${({ routeName }) => (routeName === "Home" ? "auto" : "35%")};
+  height: ${({ routeName }) => (routeName === "Home" ? "auto" : "100%%")};
   background: red;
 `;
 
 export const PaginationContainer = styled.div`
   background: red;
   margin-top: 10px;
+  padding: 5px;
+  display: flex;
+  gap: 5px;
 `;
 
 export const TitleContainer = styled.div`

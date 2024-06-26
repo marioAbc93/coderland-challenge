@@ -40,3 +40,12 @@ export const initialEventState: ListType = {
   username: "",
   password: "",
 };
+
+export interface PaginationContextType {
+  selectedPage: number;
+  setSelectedPage: React.Dispatch<React.SetStateAction<number>>;
+  pages: number;
+  pagesButton: JSX.Element[] | null;
+  data: ListType[] | TasksType[];
+  itemsPerPage: number;
+}

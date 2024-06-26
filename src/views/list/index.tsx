@@ -7,12 +7,12 @@ import ViewContainer from "../../components/viewContainer";
 import Loader from "../../components/loader";
 import ListCard from "../../components/list-card";
 import GridContainer from "../../components/grid-container";
-
+import { usePaginator } from "../../models/context/usePaginator";
 export default function ListView() {
   const dispatch: AppDispatch = useDispatch();
   const list = useSelector(listSelector);
   const [isLoading, setIsLoading] = useState(false);
-
+  const { selectedPage } = usePaginator();
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -36,9 +36,11 @@ export default function ListView() {
         <Loader data-testid="loader" />
       ) : (
         <GridContainer>
-          {list.map((item, index) => (
-            <ListCard key={index} name={item.name} avatar={item.avatar} />
-          ))}
+          {list
+            .slice((selectedPage - 1) * 6, selectedPage * 6)
+            .map((item, index) => (
+              <ListCard key={index} name={item.name} avatar={item.avatar} />
+            ))}
         </GridContainer>
       )}
     </ViewContainer>

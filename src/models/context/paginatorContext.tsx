@@ -1,12 +1,19 @@
-import React, { useState, useMemo } from "react";
-import { ListType, TasksType } from "../../models/entities";
+import React, { createContext, useState, useMemo } from "react";
+import {
+  ListType,
+  PaginationContextType,
+  TasksType,
+} from "../../models/entities";
 
-interface PaginationProps {
+export const PaginationContext = createContext<
+  PaginationContextType | undefined
+>(undefined);
+
+export const PaginationProvider: React.FC<{
+  children: React.ReactNode;
   data: ListType[] | TasksType[];
   itemsPerPage?: number;
-}
-
-const Paginator: React.FC<PaginationProps> = ({ data, itemsPerPage = 10 }) => {
+}> = ({ children, data, itemsPerPage = 6 }) => {
   const [selectedPage, setSelectedPage] = useState(1);
   const pages = useMemo(
     () => Math.ceil(data.length / itemsPerPage),
@@ -35,12 +42,17 @@ const Paginator: React.FC<PaginationProps> = ({ data, itemsPerPage = 10 }) => {
   }, [selectedPage, pages]);
 
   return (
-    <div
-      style={{ display: "flex", flexDirection: "row", gap: 5, width: "100%" }}
+    <PaginationContext.Provider
+      value={{
+        selectedPage,
+        setSelectedPage,
+        pages,
+        pagesButton,
+        data,
+        itemsPerPage,
+      }}
     >
-      {pagesButton}
-    </div>
+      {children}
+    </PaginationContext.Provider>
   );
 };
-
-export default Paginator;
