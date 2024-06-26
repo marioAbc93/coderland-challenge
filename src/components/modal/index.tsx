@@ -1,18 +1,27 @@
 import { useDispatch } from "react-redux";
-import { addEvent } from "../../models/redux/tasks";
-import { ModalContainer, ModalContent, Row } from "./styled";
-import { ButtonComponent } from "../bet-container/styled";
+import { ModalContainer, ModalContent, Row, ButtonComponent } from "./styled";
 import { ExitIcon } from "../../assets/icons";
 import Button from "../custom-button";
 import { useModal } from "../../models/context/useModal";
+import { useState } from "react";
+import { addTask } from "../../models/redux/tasks";
 
 export default function Modal() {
+  const [taskInput, setTaskInput] = useState("");
   const dispatch = useDispatch();
-  const { open, setOpen, name, price, selection } = useModal();
+  const { open, setOpen } = useModal();
 
-  const handleConfirm = () => {
-    if (selection) {
-      dispatch(addEvent(selection));
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTaskInput(e.target.value);
+  };
+
+  const handleCreate = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (taskInput.trim() !== "") {
+      dispatch(
+        addTask({ id: self.crypto.randomUUID(), description: taskInput })
+      );
+      setTaskInput("");
       setOpen(false);
     }
   };
@@ -26,13 +35,17 @@ export default function Modal() {
         {ExitIcon}
       </ButtonComponent>
       <ModalContent>
-        Seguro que deseas agregar a {name} con una cuota de {price}
+        <input
+          type="text"
+          placeholder="Type your new task..."
+          value={taskInput}
+          onChange={handleInputChange}
+        />
         <Row>
-          <Button color="secondary" onClick={handleConfirm} description="Si" />
           <Button
-            color="primary"
-            onClick={() => setOpen(false)}
-            description="No"
+            color="secondary"
+            onClick={handleCreate}
+            description="Add Task"
           />
         </Row>
       </ModalContent>

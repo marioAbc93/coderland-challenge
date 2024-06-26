@@ -1,37 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { initiaSelectionlState, SelectionType } from "../../entities";
+import { TasksType } from "../../entities";
 
-const eventSelectionSlice = createSlice({
+const tasksSlice = createSlice({
   name: "tasks",
-  initialState: initiaSelectionlState,
+  initialState: [] as TasksType[],
   reducers: {
-    addEvent: (state, action: PayloadAction<SelectionType>) => {
-      const existingEvent = state.events.find(
-        (event) => event.id === action.payload.id
-      );
-
-      if (!existingEvent) {
-        state.events.push(action.payload);
-        state.totalEvents += 1;
-      }
+    setTasks: (state, action: PayloadAction<TasksType[]>) => {
+      return [...state, ...action.payload];
     },
-    clearAllSelection: (state) => {
-      state.events = [];
-      state.totalEvents = 0;
-    },
-    removeItemFromSelection: (state, action: PayloadAction<string>) => {
-      const index = state.events.findIndex(
-        (event) => event.id === action.payload
-      );
-      if (index !== -1) {
-        state.events.splice(index, 1);
-        state.totalEvents -= 1;
-      }
+    addTask: (state, action: PayloadAction<TasksType>) => {
+      state.push(action.payload);
     },
   },
 });
 
-export const { addEvent, clearAllSelection, removeItemFromSelection } =
-  eventSelectionSlice.actions;
+export const { setTasks, addTask } = tasksSlice.actions;
 
-export default eventSelectionSlice.reducer;
+export default tasksSlice.reducer;

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "../../models/redux";
 import { listSelector } from "../../models/redux/list";
 import { listService } from "../../models/redux/list/service";
-import ViewContainer from "../../components/view-container";
+import ViewContainer from "../../components/viewContainer";
 import Loader from "../../components/loader";
 import ListCard from "../../components/list-card";
 import GridContainer from "../../components/grid-container";

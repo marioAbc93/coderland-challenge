@@ -7,6 +7,11 @@ export type ListType = {
   password?: string;
 };
 
+export type TasksType = {
+  id: string;
+  description: string;
+};
+
 export type ResponseType = ListType[];
 
 export type MarketType = {
@@ -27,15 +32,6 @@ export type SelectionType = {
   price: number;
 };
 
-export interface SelectionState {
-  totalEvents: number;
-  events: SelectionType[];
-}
-
-export const initiaSelectionlState: SelectionState = {
-  totalEvents: 0,
-  events: [],
-};
 export const initialEventState: ListType = {
   createdAt: "",
   name: "",

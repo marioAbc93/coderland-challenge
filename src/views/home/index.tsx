@@ -1,6 +1,6 @@
 import { AppRoutes } from "../../constants";
 import NavigationCard from "../../components/navigation-card";
-import ViewContainer from "../../components/view-container";
+import ViewContainer from "../../components/viewContainer";
 
 export default function HomeView() {
   return (

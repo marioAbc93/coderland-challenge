@@ -1,5 +1,4 @@
 import { RootState } from "../store";
-import { SelectionState } from "../../entities";
+import { TasksType } from "../../entities";
 
-export const eventSelectionSelector = (state: RootState): SelectionState =>
-  state.tasks;
+export const tasksSelector = (state: RootState): TasksType[] => state.tasks;

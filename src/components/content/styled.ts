@@ -45,5 +45,27 @@ export const ContainerHead = styled.div`
 
 export const DataContainer = styled.div<{ routeName: string }>`
   overflow-y: hidden;
-  height: ${({ routeName }) => (routeName === "Home" ? "auto" : "95%")};
+  height: ${({ routeName }) => (routeName === "Home" ? "auto" : "35%")};
+  background: red;
+`;
+
+export const PaginationContainer = styled.div`
+  background: red;
+  margin-top: 10px;
+`;
+
+export const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  button {
+    display: flex;
+    align-items: "center";
+    svg {
+      width: 20px;
+      height: 18px;
+      margin-left: 3px;
+    }
+  }
 `;

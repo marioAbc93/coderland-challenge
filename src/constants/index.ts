@@ -30,13 +30,11 @@ type ThemeType = typeof Themes.light;
 
 export interface ButtonProps {
   color?: "primary" | "secondary" | "warning" | "danger" | "success";
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   icon?: JSX.Element;
   description?: string;
-  value?: string | number;
   theme?: ThemeType;
   orientation?: "row" | "column";
-  isBet?: boolean;
 }
 
 export type AlertColor = "success" | "warning" | "error";

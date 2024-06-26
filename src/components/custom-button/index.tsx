@@ -9,9 +9,7 @@ const Button = ({
   onClick,
   icon,
   description,
-  value,
   orientation = "row",
-  isBet,
   theme = Themes.light,
 }: ButtonProps & { theme?: ThemeType }) => {
   const { primary, secondary, warning, success, danger } = theme;
@@ -48,14 +46,7 @@ const Button = ({
       onClick={onClick}
     >
       {icon}
-      {isBet ? (
-        <>
-          <span>{description}</span>
-          <span>{value}</span>
-        </>
-      ) : (
-        <span>{description}</span>
-      )}
+      <span>{description}</span>
     </StyledButton>
   );
 };
