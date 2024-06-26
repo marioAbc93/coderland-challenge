@@ -1,4 +1,4 @@
-import { useRoute } from "../../models/context/useRoute";
+import { useRouteName } from "../../models/context/useRoute";
 import { ViewContainerComponent } from "./styled";
 
 export default function ViewContainer({
@@ -6,7 +6,7 @@ export default function ViewContainer({
 }: {
   children: React.ReactNode;
 }) {
-  const { routeName } = useRoute();
+  const { routeName } = useRouteName();
   return (
     <ViewContainerComponent routeName={routeName}>
       {children}

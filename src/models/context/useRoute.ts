@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { RouteContext } from "./routeContext";
 
-export const useRoute = () => {
+export const useRouteName = () => {
   const context = useContext(RouteContext);
   if (!context) {
     throw new Error(

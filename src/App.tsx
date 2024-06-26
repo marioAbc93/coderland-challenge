@@ -10,6 +10,7 @@ import { ModalProvider } from "./models/context/modalContext.tsx";
 import { useRoutes } from "react-router-dom";
 import routes from "./routes.tsx";
 import { RouteProvider } from "./models/context/routeContext.tsx";
+
 function App() {
   const [theme, setTheme] = useState<Theme>({
     themeMode: window.matchMedia("(prefers-color-scheme: dark)").matches
