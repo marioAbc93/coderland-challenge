@@ -9,8 +9,15 @@ export interface Theme {
 export interface ThemeSelection {
   themeMode: "light" | "dark";
 }
+
+export const AppRoutes = [
+  { name: "Historia de crédito", path: "/list" },
+  { name: "Huellas de consulta", path: "/tasks" },
+];
+
 export interface AppContainerProps {
   theme: ThemeSelection;
+  children: React.ReactNode;
   setTheme: (theme: "light" | "dark") => void;
 }
 
@@ -58,4 +65,9 @@ export interface InputProps {
   disabled?: boolean;
   value?: string | number;
   onChange?: (newValue: number) => void;
+}
+
+export interface NavigationProps {
+  name: string;
+  path: string;
 }

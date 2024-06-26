@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { useState } from "react";
+import Themes from "./theme/theme.ts";
+import { ThemeProvider } from "styled-components";
+import AppContainer from "./components/app-container";
+import { Theme, ThemeMode } from "./constants";
+import { NotificationProvider } from "./models/context/notificationContext.tsx";
+import { Provider } from "react-redux";
+import { store } from "./models/redux/store.ts";
+import { ModalProvider } from "./models/context/modalContext.tsx";
+import { useRoutes } from "react-router-dom";
+import routes from "./routes.tsx";
 function App() {
-  const [count, setCount] = useState(0)
+  const [theme, setTheme] = useState<Theme>({
+    themeMode: window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light",
+  });
 
+  const handleSetTheme = (themeMode: ThemeMode) => {
+    setTheme((prevState) => ({ ...prevState, themeMode }));
+  };
+  const elements = useRoutes(routes);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Provider store={store}>
+      <NotificationProvider>
+        <ModalProvider>
+          <ThemeProvider theme={Themes[theme.themeMode]}>
+            <AppContainer theme={theme} setTheme={handleSetTheme}>
+              {elements}
+            </AppContainer>
+          </ThemeProvider>
+        </ModalProvider>
+      </NotificationProvider>
+    </Provider>
+  );
 }
 
-export default App
+export default App;

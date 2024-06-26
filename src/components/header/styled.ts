@@ -15,6 +15,26 @@ export const HeaderContainer = styled.nav`
     height: 20px;
   }
 `;
+export const HeaderContent = styled.nav`
+  max-width: 750px;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  width: 750px;
+`;
+
+export const AppLogo = styled.img`
+  width: 40px;
+  height: 40px;
+`;
+
+export const LogoDiv = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+`;
 export const ThemeToggle = styled.button<{ theme: string }>`
   cursor: pointer;
 
