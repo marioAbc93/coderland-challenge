@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "../../models/redux";
 import { listSelector } from "../../models/redux/list";
 import { listService } from "../../models/redux/list/service";
-import ViewContainer from "../../components/viewContainer";
+import ViewContainer from "../../components/view-container";
 import Loader from "../../components/loader";
+import ListCard from "../../components/list-card";
+import GridContainer from "../../components/grid-container";
 
 export default function ListView() {
   const dispatch: AppDispatch = useDispatch();
@@ -33,13 +35,11 @@ export default function ListView() {
       {isLoading ? (
         <Loader data-testid="loader" />
       ) : (
-        <div>
-          <ul>
-            {list.map((item, index) => (
-              <li key={index}>{item.name}</li>
-            ))}
-          </ul>
-        </div>
+        <GridContainer>
+          {list.map((item, index) => (
+            <ListCard key={index} name={item.name} avatar={item.avatar} />
+          ))}
+        </GridContainer>
       )}
     </ViewContainer>
   );

@@ -1,23 +1,16 @@
-import { Container, ContainerHead } from "./styled";
+import { Container, ContainerHead, DataContainer } from "./styled";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Back } from "../../assets/icons";
+import { useRoute } from "../../models/context/useRoute";
 
 export default function Content({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const navigate = useNavigate();
-
+  const { routeName } = useRoute();
   const handleBack = () => {
     navigate(-1);
   };
-
-  const routeNames: { [key: string]: string } = {
-    "/": "Home",
-    "/tasks": "Tasks",
-    "/list": "List",
-  };
-
-  const routeName = routeNames[location.pathname] || "Page";
 
   return (
     <Container data-testid="container" ishome={isHome}>
@@ -27,7 +20,7 @@ export default function Content({ children }: { children: React.ReactNode }) {
           <span>{routeName}</span>
         </ContainerHead>
       )}
-      <div>{children}</div>
+      <DataContainer routeName={routeName}>{children}</DataContainer>
     </Container>
   );
 }

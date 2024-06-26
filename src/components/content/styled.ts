@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div<{ ishome: boolean }>`
+  display: flex;
+  flex-direction: column;
   max-width: 750px;
   margin: 0 auto;
   padding: 10px;
@@ -24,8 +26,6 @@ export const ContainerHead = styled.div`
   margin: 0 auto;
   padding: 10px;
   width: 80%;
-  /* background: ${({ theme }) => theme.background};
-  box-shadow: ${({ theme }) => theme.boxShadow}; */
   button {
     background: none;
     border: ${({ theme }) => `1px solid ${theme.color}`};
@@ -41,4 +41,9 @@ export const ContainerHead = styled.div`
     font-weight: bold;
     font-size: 16px;
   }
+`;
+
+export const DataContainer = styled.div<{ routeName: string }>`
+  overflow-y: auto;
+  height: ${({ routeName }) => (routeName === "Home" ? "auto" : "83%")};
 `;

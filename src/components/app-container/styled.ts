@@ -21,7 +21,7 @@ export const ChildrenContainer = styled.div`
   align-self: center;
   width: 100vw;
   background: ${({ theme }) => theme.contentColor};
-  //background: red;
+  overflow-y: hidden;
   height: 100%;
   padding: 40px 20px;
   padding-bottom: 80px;

@@ -71,3 +71,16 @@ export interface NavigationProps {
   name: string;
   path: string;
 }
+
+export interface ListCardProps {
+  name: string;
+  avatar: string;
+}
+
+export interface RouteProviderProps {
+  children: React.ReactNode;
+}
+
+export type RouteNames = {
+  [key: string]: string;
+};

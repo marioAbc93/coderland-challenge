@@ -9,6 +9,7 @@ import { store } from "./models/redux/store.ts";
 import { ModalProvider } from "./models/context/modalContext.tsx";
 import { useRoutes } from "react-router-dom";
 import routes from "./routes.tsx";
+import { RouteProvider } from "./models/context/routeContext.tsx";
 function App() {
   const [theme, setTheme] = useState<Theme>({
     themeMode: window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -24,11 +25,13 @@ function App() {
     <Provider store={store}>
       <NotificationProvider>
         <ModalProvider>
-          <ThemeProvider theme={Themes[theme.themeMode]}>
-            <AppContainer theme={theme} setTheme={handleSetTheme}>
-              {elements}
-            </AppContainer>
-          </ThemeProvider>
+          <RouteProvider>
+            <ThemeProvider theme={Themes[theme.themeMode]}>
+              <AppContainer theme={theme} setTheme={handleSetTheme}>
+                {elements}
+              </AppContainer>
+            </ThemeProvider>
+          </RouteProvider>
         </ModalProvider>
       </NotificationProvider>
     </Provider>
