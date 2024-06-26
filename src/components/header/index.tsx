@@ -12,6 +12,7 @@ import { useState } from "react";
 import { Moon, Sun } from "../../assets/icons/index";
 import User from "../../assets/user.jpg";
 import Logo from "../../assets/tarea.png";
+import { Link } from "react-router-dom";
 export default function Header(props: HeaderProps) {
   const { theme, setTheme } = props;
   const [isDarkMode, setIsDarkMode] = useState<boolean>(
@@ -32,7 +33,9 @@ export default function Header(props: HeaderProps) {
     <HeaderContainer data-testid="header-container">
       <HeaderContent>
         <LogoDiv>
-          <AppLogo src={Logo} alt="app logo" />
+          <Link to="/">
+            <AppLogo src={Logo} alt="app logo" />
+          </Link>
           <ThemeToggle
             onClick={() => {
               handleTheme();

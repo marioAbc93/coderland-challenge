@@ -8,7 +8,7 @@ export default [
     children: [
       { index: true, element: <Home /> },
       { path: "/list", element: <List /> },
-      { path: "/task", element: <Tasks /> },
+      { path: "/tasks", element: <Tasks /> },
     ],
   },
 ];

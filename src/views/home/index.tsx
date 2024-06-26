@@ -1,18 +1,10 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { AppRoutes } from "../../constants";
 import NavigationCard from "../../components/navigation-card";
+import { ViewContainer } from "./styled";
 
 export default function HomeView() {
-  const location = useLocation();
-  const { pathname } = location;
-
-  useEffect(() => {
-    document.title = `${pathname} - MB Tasks`;
-  }, [pathname]);
-
   return (
-    <div>
+    <ViewContainer>
       {AppRoutes.map((route, index) => (
         <NavigationCard
           key={index}
@@ -21,6 +13,6 @@ export default function HomeView() {
           data-testid={`event-container-${index}`}
         />
       ))}
-    </div>
+    </ViewContainer>
   );
 }

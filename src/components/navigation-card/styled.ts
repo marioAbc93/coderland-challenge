@@ -1,25 +1,15 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button<{ orientation: string }>`
-  display: flex;
-  flex-direction: ${({ orientation }) => (orientation ? orientation : "row")};
-  gap: 10px;
-  align-items: center;
-  align-self: center;
-  border: none;
+export const NavigationCardComponent = styled.div`
+  border: ${({ theme }) => `1px solid ${theme.color}`};
   padding: 10px;
-  border-radius: 5px;
-  justify-content: space-around;
-  font-weight: bold;
-  color: white;
-  :active {
-    transform: scale(0.9);
-  }
-  :nth-child(1) {
-    font-size: 10px;
-    margin-bottom: 0;
-  }
-  :nth-child(2) {
-    font-size: 16px;
-  }
+  border-radius: 6px;
+  flex: 1;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
+  box-shadow: ${({ theme }) => theme.boxShadow};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
 `;

@@ -11,8 +11,8 @@ export interface ThemeSelection {
 }
 
 export const AppRoutes = [
-  { name: "Historia de crédito", path: "/list" },
-  { name: "Huellas de consulta", path: "/tasks" },
+  { name: "Tasks", path: "/tasks" },
+  { name: "List", path: "/list" },
 ];
 
 export interface AppContainerProps {

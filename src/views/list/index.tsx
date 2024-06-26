@@ -1,5 +1,7 @@
-import React from "react";
-
-export default function index() {
-  return <div>index</div>;
+export default function ListView() {
+  return (
+    <div>
+      <h2>List</h2>
+    </div>
+  );
 }
