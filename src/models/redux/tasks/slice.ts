@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { initiaSelectionlState, SelectionType } from "../../entities/event";
+import { initiaSelectionlState, SelectionType } from "../../entities";
 
 const eventSelectionSlice = createSlice({
-  name: "events",
+  name: "tasks",
   initialState: initiaSelectionlState,
   reducers: {
     addEvent: (state, action: PayloadAction<SelectionType>) => {

@@ -1,5 +1,5 @@
 import React, { useState, createContext, ReactNode } from "react";
-import { SelectionType } from "../../models/entities/event";
+import { SelectionType } from "../entities";
 
 interface ModalContextProps {
   open: boolean;

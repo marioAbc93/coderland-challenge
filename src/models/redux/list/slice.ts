@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ListType } from "../../entities/event";
+import { ListType } from "../../entities";
 import { listService } from "./service";
 
 const listSlice = createSlice({

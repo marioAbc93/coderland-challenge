@@ -1,4 +1,4 @@
 import { RootState } from "../store";
-import { ListType } from "../../entities/event";
+import { ListType } from "../../entities";
 
-export const eventSelector = (state: RootState): ListType[] => state.list;
+export const listSelector = (state: RootState): ListType[] => state.list;

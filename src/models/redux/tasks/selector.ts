@@ -1,8 +1,5 @@
 import { RootState } from "../store";
-import { SelectionState } from "../../entities/event";
+import { SelectionState } from "../../entities";
 
 export const eventSelectionSelector = (state: RootState): SelectionState =>
-  state.eventSelection;
-
-export const totalEventsSelectedSelector = (state: RootState): number =>
-  eventSelectionSelector(state).totalEvents;
+  state.tasks;

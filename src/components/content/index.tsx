@@ -1,6 +1,7 @@
 import { Container, ContainerHead } from "./styled";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Back } from "../../assets/icons";
+
 export default function Content({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
@@ -17,8 +18,9 @@ export default function Content({ children }: { children: React.ReactNode }) {
   };
 
   const routeName = routeNames[location.pathname] || "Page";
+
   return (
-    <Container data-testid="container" isHome={isHome}>
+    <Container data-testid="container" ishome={isHome}>
       {!isHome && (
         <ContainerHead>
           <button onClick={handleBack}>{Back}</button>

@@ -1,14 +1,17 @@
 import styled from "styled-components";
 
-export const Container = styled.div<{ isHome: boolean }>`
+export const Container = styled.div<{ ishome: boolean }>`
   max-width: 750px;
   margin: 0 auto;
   padding: 10px;
   width: 90%;
   height: 100%;
-  border: ${({ theme, isHome }) => !isHome && `2px solid ${theme.color}`};
-  background: ${({ theme, isHome }) => !isHome && theme.background};
-  box-shadow: ${({ theme, isHome }) => !isHome && theme.boxShadow};
+  border: ${({ theme, ishome }) =>
+    ishome === false ? `2px solid ${theme.color}` : "none"};
+  background: ${({ theme, ishome }) =>
+    ishome === false ? theme.background : ""};
+  box-shadow: ${({ theme, ishome }) =>
+    ishome === false ? theme.boxShadow : ""};
   border-radius: 10px;
   margin-top: 10px;
 `;

@@ -1,10 +1,10 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import eventSelectionSlice from "./tasks/slice";
+import tasksSlice from "./tasks/slice";
 import listSlice from "./list/slice";
 
 const rootReducer = combineReducers({
   list: listSlice,
-  eventSelection: eventSelectionSlice,
+  tasks: tasksSlice,
 });
 
 export default rootReducer;
