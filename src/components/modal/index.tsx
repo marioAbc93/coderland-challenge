@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addEvent } from "../../models/redux/selection";
+import { addEvent } from "../../models/redux/tasks";
 import { ModalContainer, ModalContent, Row } from "./styled";
 import { ButtonComponent } from "../bet-container/styled";
 import { ExitIcon } from "../../assets/icons";

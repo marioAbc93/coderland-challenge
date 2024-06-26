@@ -1,10 +1,13 @@
-export type EventType = {
-  id: string;
+export type ListType = {
+  createdAt: string;
   name: string;
-  markets: MarketType[];
+  avatar: string;
+  id: number;
+  username?: string;
+  password?: string;
 };
 
-export type ResponseType = EventType[];
+export type ResponseType = ListType[];
 
 export type MarketType = {
   selections: SelectionType[];
@@ -33,8 +36,11 @@ export const initiaSelectionlState: SelectionState = {
   totalEvents: 0,
   events: [],
 };
-export const initialEventState: EventType = {
-  id: "",
+export const initialEventState: ListType = {
+  createdAt: "",
   name: "",
-  markets: [],
+  avatar: "",
+  id: 0,
+  username: "",
+  password: "",
 };

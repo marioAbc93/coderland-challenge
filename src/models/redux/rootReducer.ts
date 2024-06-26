@@ -1,9 +1,9 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import eventSelectionSlice from "./selection/slice";
-import eventSlice from "./events/slice";
+import eventSelectionSlice from "./tasks/slice";
+import listSlice from "./list/slice";
 
 const rootReducer = combineReducers({
-  events: eventSlice,
+  list: listSlice,
   eventSelection: eventSelectionSlice,
 });
 
