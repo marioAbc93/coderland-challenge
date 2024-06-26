@@ -44,6 +44,6 @@ export const ContainerHead = styled.div`
 `;
 
 export const DataContainer = styled.div<{ routeName: string }>`
-  overflow-y: auto;
-  height: ${({ routeName }) => (routeName === "Home" ? "auto" : "83%")};
+  overflow-y: hidden;
+  height: ${({ routeName }) => (routeName === "Home" ? "auto" : "95%")};
 `;
