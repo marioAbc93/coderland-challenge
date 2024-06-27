@@ -13,3 +13,9 @@ Starts the application in development mode.
 ### `npm run test`
 
 Runs the tests.
+
+## Environment
+
+```
+VITE_MAIN_API= https://6172cfe5110a740017222e2b.mockapi.io/elements
+```

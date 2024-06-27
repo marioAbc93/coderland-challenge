@@ -41,7 +41,7 @@ describe("listSlice", () => {
         avatar: "url2",
       },
     ];
-    // Simulate dispatching a fulfilled action returned by the async thunk
+
     const action = { type: listService.fulfilled.type, payload: mockData };
     store.dispatch(action);
     expect(store.getState().list).toEqual(mockData);

@@ -18,7 +18,6 @@ export const LoaderComponent = styled.div`
   position: relative;
 
   &::after {
-    /* Target the inner element */
     content: "";
     box-sizing: border-box;
     width: 48px;

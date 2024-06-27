@@ -6,7 +6,7 @@ export const listService: AsyncThunk<
   void,
   Record<string, never>
 > = createAsyncThunk("listService", async (_, { rejectWithValue }) => {
-  const BASE_URL = "https://6172cfe5110a740017222e2b.mockapi.io/elements";
+  const BASE_URL = import.meta.env.VITE_MAIN_API;
   try {
     const response = await fetch(`${BASE_URL}`);
     if (!response.ok) {
