@@ -20,7 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/images.d.ts"],
   "references": [
     {
       "path": "./tsconfig.app.json"
