@@ -7,7 +7,6 @@ export const NavigationCardComponent = styled.div`
   flex: 1;
   color: ${({ theme }) => theme.color};
   background: ${({ theme }) => theme.background};
-  box-shadow: ${({ theme }) => theme.boxShadow};
   display: flex;
   align-items: center;
   justify-content: center;

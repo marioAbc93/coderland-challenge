@@ -12,8 +12,6 @@ export const Container = styled.div<{ ishome: boolean }>`
     ishome === false ? `2px solid ${theme.color}` : "none"};
   background: ${({ theme, ishome }) =>
     ishome === false ? theme.background : ""};
-  box-shadow: ${({ theme, ishome }) =>
-    ishome === false ? theme.boxShadow : ""};
   border-radius: 10px;
   margin-top: 10px;
 `;

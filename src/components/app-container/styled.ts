@@ -49,7 +49,6 @@ export const Container = styled.div`
   height: 100%;
   border: ${({ theme }) => `2px solid ${theme.color}`};
   background: ${({ theme }) => theme.background};
-  box-shadow: ${({ theme }) => theme.boxShadow};
   border-radius: 10px;
   margin-top: 10px;
   overflow-y: auto;

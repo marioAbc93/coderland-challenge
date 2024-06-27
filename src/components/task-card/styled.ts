@@ -10,7 +10,6 @@ export const TaskCardContainer = styled.div`
   align-items: center;
   border-radius: 8px;
   background: ${({ theme }) => theme.contentColor};
-  box-shadow: ${({ theme }) => theme.boxShadow};
   border: ${({ theme }) => `1px solid ${theme.color}`};
 
   span {
