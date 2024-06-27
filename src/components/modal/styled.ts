@@ -23,7 +23,7 @@ export const ModalContainer = styled.div<{ open: boolean }>`
     color: ${({ theme }) => theme.color};
     padding: 10px;
     border-radius: 4px;
-    width: 300px;
+    width: 120px;
     border: ${({ theme }) => `1px solid ${theme.color}`};
   }
 `;

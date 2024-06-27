@@ -10,7 +10,7 @@ export default function HomeView() {
           key={index}
           name={route.name}
           path={route.path}
-          data-testid={`event-container-${index}`}
+          data-testid={`event-container-${route.name}`}
         />
       ))}
     </ViewContainer>

@@ -30,7 +30,7 @@ export default function ListCard({ name, avatar }: ListCardProps) {
     <ListCardContainer>
       <span>{name}</span>
       {!loaded ? (
-        <User />
+        <User data-testid="user-icon" />
       ) : (
         <img
           src={imgSrc}

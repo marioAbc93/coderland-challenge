@@ -22,7 +22,7 @@ export default function Modal() {
       getError("You must write a description");
       return;
     }
-    dispatch(addTask({ id: self.crypto.randomUUID(), description: taskInput }));
+    dispatch(addTask({ id: new Date().toISOString(), description: taskInput }));
     setTaskInput("");
     getSuccess("Task created successfully, Mario :)");
     setOpen(false);
@@ -42,6 +42,7 @@ export default function Modal() {
   return (
     <ModalContainer open={open}>
       <ButtonComponent
+        data-testid="exit-icon"
         style={{ position: "absolute", right: 10, top: 5, marginBottom: 5 }}
         onClick={() => setOpen(false)}
       >

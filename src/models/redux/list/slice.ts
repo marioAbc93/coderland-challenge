@@ -11,9 +11,12 @@ const listSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(listService.fulfilled, (_state, action) => {
-      return action.payload;
-    });
+    builder.addCase(
+      listService.fulfilled,
+      (_state, action: PayloadAction<ListType[]>) => {
+        return action.payload;
+      }
+    );
   },
 });
 
