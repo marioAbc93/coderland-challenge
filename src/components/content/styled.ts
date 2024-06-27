@@ -31,6 +31,7 @@ export const ContainerHead = styled.div`
     border: ${({ theme }) => `1px solid ${theme.color}`};
     padding: 5px;
     cursor: pointer;
+    color: ${({ theme }) => theme.color};
     svg {
       color: ${({ theme }) => theme.color};
       width: 24px;
@@ -44,16 +45,15 @@ export const ContainerHead = styled.div`
 `;
 
 export const DataContainer = styled.div<{ routeName: string }>`
-  overflow-y: hidden;
+  overflow-y: ${({ routeName }) => (routeName === "Home" ? "hidden" : "auto")};
   height: ${({ routeName }) => (routeName === "Home" ? "auto" : "100%%")};
-  background: red;
 `;
 
 export const PaginationContainer = styled.div`
-  background: red;
   margin-top: 10px;
   padding: 5px;
   display: flex;
+  justify-content: center;
   gap: 5px;
 `;
 
@@ -65,6 +65,7 @@ export const TitleContainer = styled.div`
   button {
     display: flex;
     align-items: "center";
+
     svg {
       width: 20px;
       height: 18px;

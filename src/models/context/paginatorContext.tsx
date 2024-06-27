@@ -1,9 +1,11 @@
 import React, { createContext, useState, useMemo } from "react";
 import {
   ListType,
-  PaginationContextType,
   TasksType,
+  PaginationContextType,
 } from "../../models/entities";
+import { Back, DoubleLeft, DoubleRight, Next } from "../../assets/icons";
+import Button from "../../components/custom-button";
 
 export const PaginationContext = createContext<
   PaginationContextType | undefined
@@ -21,24 +23,79 @@ export const PaginationProvider: React.FC<{
   );
 
   const pagesButton = useMemo(() => {
-    if (pages === 1) return null;
-    const numberOfButtons = pages === 2 ? 2 : 3;
-    const initialButton =
-      selectedPage === 1
-        ? 1
-        : selectedPage === pages
-        ? pages - 2
-        : selectedPage - 1;
+    if (pages < 2) return null;
 
-    return Array.from({ length: numberOfButtons }, (_, i) => {
-      const pageNumber =
-        numberOfButtons === 2 || pages === 3 ? i + 1 : initialButton + i;
-      return (
-        <button key={pageNumber} onClick={() => setSelectedPage(pageNumber)}>
-          {pageNumber}
-        </button>
+    const buttons = [];
+
+    buttons.push(
+      <Button
+        key="first"
+        disabled={selectedPage === 1}
+        onClick={() => setSelectedPage(1)}
+        icon={DoubleLeft}
+        color="primary"
+      />
+    );
+
+    buttons.push(
+      <Button
+        key="prev"
+        disabled={selectedPage === 1}
+        onClick={() => setSelectedPage(selectedPage - 1)}
+        icon={Back}
+        color="primary"
+      />
+    );
+
+    const startPage = Math.max(selectedPage - 1, 1);
+    const endPage = Math.min(startPage + 2, pages);
+
+    for (let i = startPage; i <= endPage; i++) {
+      buttons.push(
+        <Button
+          key={i}
+          disabled={i === selectedPage}
+          onClick={() => setSelectedPage(i)}
+          color={i === selectedPage ? "secondary" : "primary"}
+          description={i}
+        />
       );
-    });
+    }
+
+    if (endPage < pages) {
+      buttons.push(<span key="ellipsis">...</span>);
+
+      buttons.push(
+        <Button
+          key={pages}
+          onClick={() => setSelectedPage(pages)}
+          color="primary"
+          description={pages}
+        />
+      );
+    }
+
+    buttons.push(
+      <Button
+        key="next"
+        disabled={selectedPage === pages}
+        onClick={() => setSelectedPage(selectedPage + 1)}
+        icon={Next}
+        color="primary"
+      />
+    );
+
+    buttons.push(
+      <Button
+        key="last"
+        disabled={selectedPage === pages}
+        onClick={() => setSelectedPage(pages)}
+        icon={DoubleRight}
+        color="primary"
+      />
+    );
+
+    return buttons;
   }, [selectedPage, pages]);
 
   return (

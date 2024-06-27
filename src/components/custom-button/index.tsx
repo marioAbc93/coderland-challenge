@@ -11,6 +11,7 @@ const Button = ({
   description,
   orientation = "row",
   theme = Themes.light,
+  disabled = false,
 }: ButtonProps & { theme?: ThemeType }) => {
   const { primary, secondary, warning, success, danger } = theme;
 
@@ -44,6 +45,7 @@ const Button = ({
       orientation={orientation}
       style={buttonStyle}
       onClick={onClick}
+      disabled={disabled}
     >
       {icon}
       <span>{description}</span>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ListCardContainer = styled.div`
+export const TaskCardContainer = styled.div`
   width: 95%;
   height: 40px;
   flex: 1;
@@ -12,18 +12,10 @@ export const ListCardContainer = styled.div`
   background: ${({ theme }) => theme.contentColor};
   box-shadow: ${({ theme }) => theme.boxShadow};
   border: ${({ theme }) => `1px solid ${theme.color}`};
-  img {
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-  }
+
   span {
     font-weight: bold;
     font-size: 14px;
-  }
-  svg {
-    width: 35px;
-    height: 35px;
   }
 `;
 

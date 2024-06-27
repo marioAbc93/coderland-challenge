@@ -29,11 +29,9 @@ export default function Content({ children }: { children: React.ReactNode }) {
 
   const { handleOpen } = useModal();
 
-  const showTaskPagination =
-    routeName === "Tasks" && pages > 1 && tasks.length > 1;
+  const showTaskPagination = routeName === "Tasks" && tasks.length > 6;
 
-  const showListPagination =
-    routeName === "List" && pages > 1 && list.length > 1;
+  const showListPagination = routeName === "List" && list.length > 6;
   console.log(itemsPerPage);
   return (
     <>

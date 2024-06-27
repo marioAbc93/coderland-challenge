@@ -32,9 +32,10 @@ export interface ButtonProps {
   color?: "primary" | "secondary" | "warning" | "danger" | "success";
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   icon?: JSX.Element;
-  description?: string;
+  description?: string | number;
   theme?: ThemeType;
   orientation?: "row" | "column";
+  disabled?: boolean;
 }
 
 export type AlertColor = "success" | "warning" | "error";
@@ -82,3 +83,7 @@ export interface RouteProviderProps {
 export type RouteNames = {
   [key: string]: string;
 };
+
+export interface TaskCardProps {
+  description: string;
+}

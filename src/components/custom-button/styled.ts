@@ -7,7 +7,7 @@ export const StyledButton = styled.button<{ orientation: string }>`
   align-items: center;
   align-self: center;
   border: none;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
   justify-content: space-around;
   font-weight: bold;
@@ -15,11 +15,9 @@ export const StyledButton = styled.button<{ orientation: string }>`
   :active {
     transform: scale(0.9);
   }
-  :nth-child(1) {
-    font-size: 10px;
-    margin-bottom: 0;
-  }
-  :nth-child(2) {
-    font-size: 16px;
+
+  svg {
+    width: 20px;
+    height: 20px;
   }
 `;

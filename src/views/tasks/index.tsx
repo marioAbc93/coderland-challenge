@@ -5,6 +5,7 @@ import GridContainer from "../../components/grid-container";
 
 import Loader from "../../components/loader";
 import ViewContainer from "../../components/viewContainer";
+import TaskCard from "../../components/task-card";
 
 export default function TasksView() {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +20,7 @@ export default function TasksView() {
       ) : (
         <GridContainer>
           {tasks.map((item) => (
-            <div key={item.id}>{item.description}</div>
+            <TaskCard key={item.id} description={item.description} />
           ))}
         </GridContainer>
       )}
