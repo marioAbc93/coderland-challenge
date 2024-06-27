@@ -1,30 +1,15 @@
-# React + TypeScript + Vite
+## CODERLAND FRONTEND CHALLENGE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It is a react application with two buttons on its main page that redirect to /list and /tasks, in list we see a series of data brought from an API and in tasks a series of data created within the application which can persist when changing route or reload the page
 
-Currently, two official plugins are available:
+## Available Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Explanation of scripts defined in `package.json`.
 
-## Expanding the ESLint configuration
+### `npm run dev`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Starts the application in development mode.
 
-- Configure the top-level `parserOptions` property like this:
+### `npm run test`
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Runs the tests.
